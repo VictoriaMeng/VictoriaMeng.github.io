@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "Why Programming and Creativing Writing Go Hand in Hand"
-date:       2017-12-27 00:35:09 +0000
+title:      "Why Programming and Creative Writing Go Hand in Hand"
+date:       2017-12-26 19:35:10 -0500
 permalink:  why_programming_and_creativing_writing_go_hand_in_hand
 ---
 
