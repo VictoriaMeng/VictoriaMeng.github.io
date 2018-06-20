@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Sinatra App - RPG Character Builder"
-date:       2018-06-20 16:33:20 +0000
+date:       2018-06-20 12:33:21 -0400
 permalink:  sinatra_app_-_rpg_character_builder
 ---
 
@@ -25,3 +25,5 @@ Key takeaways from developing this app:
 * Avoid calling `Class.all` in your views for security reasons. It makes it easier for hackers to access all the data in your table through your browser. It is better to set assign `Class.all` to an instance variable in your controller routes, and invoke the variable in your view.
 
 * When using the `rack-flash3` Ruby gem, `use Rack::Flash` must be invoked in the application_controller after enabling sessions, not in the `config.ru` file. I believe the reason for this is because Rack::Flash depends on having sessions enabled, so if Rack::Flash is loaded by `config.ru` before sessions is enabled, your app will throw an error.
+
+* Calling `.uniq` on an instance associated with other instances through a `:has_many` relationship avoids redundant lists and inflated totals.
