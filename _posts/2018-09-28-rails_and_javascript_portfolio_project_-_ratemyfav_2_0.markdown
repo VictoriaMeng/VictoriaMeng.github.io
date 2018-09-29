@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Rails and Javascript Portfolio Project - RateMyFav 2.0"
-date:       2018-09-29 02:23:18 +0000
+date:       2018-09-28 22:23:18 -0400
 permalink:  rails_and_javascript_portfolio_project_-_ratemyfav_2_0
 ---
 
