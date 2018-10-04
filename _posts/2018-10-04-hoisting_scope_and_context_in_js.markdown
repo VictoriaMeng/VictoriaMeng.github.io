@@ -36,11 +36,13 @@ var a = 1```
 
 It looks confusing, but the reason is because the Javascript engine actually compiles and executes the above line of code like this:
 
-`var a;
+````
+var a;
 
 console.log(a);
 
-a = 1;`
+a = 1;
+```
 
 When it sees the `var` keyword, it hoists the `a` variable pointer to the top of the variable's scope without the definition. When the Javascript engine then invokes the `console.log(a)` function and looks for an `a` variable, it successfully finds and prints it out even though it's undefined.
 
