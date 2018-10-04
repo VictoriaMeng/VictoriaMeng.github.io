@@ -26,9 +26,11 @@ Instead, Javascript will instead 'hoist' function and variable pointers to the t
 
 This means that if you fail to declare a variable before invoking it, you might get odd results in your code.  For instance, in the below line of code...
 
-```console.log(a);
+```
+console.log(a);
 
-var a = 1```
+var a = 1
+```
 
 ...instead of printing `1` or a `ReferenceError`, the console will print out the value of `a` as `undefined`.
 
@@ -50,7 +52,8 @@ Two other important `hoisting` facts to know is that *functions are hoisted befo
 
 So when you have a function and variable with the same name...
 
-`foo(); 
+```
+foo(); 
 
 var foo;
 
@@ -64,24 +67,29 @@ foo = function() {  console.log( 2 ); }`
 
 foo(); // 1
 
-foo = function() { console.log( 2 ); };`
+foo = function() { console.log( 2 ); };
+```
 
 Invoking `foo()` will print `1` because the Javascript engine first hoists the first `function` definition and then assigns the value of the `foo` variable, discarding the `foo` variable declared with `var` because functions are hoisted before variables.
 
 Another important hoisting fact to remember is that `function declarations are hoisted, but not function expressions`. If you assign a function as a value of a variable, it won't be hoisted. For example:
 
-`foo();
+```
+foo();
 
-var foo = function bar() { alert("Hello"); };`
+var foo = function bar() { alert("Hello"); };
+```
 
 In the above line of code, `foo()` will return a `TypeError`, not a `ReferenceError` because the engine will interpret the code as:
 
-`var foo;
+```
+var foo;
 
 foo();
 bar();
 
-var foo = function bar() { alert("Hello"); };`
+var foo = function bar() { alert("Hello"); };
+```
 
 So invoking `foo()` throws a `TypeError` because foo as been declared, but isn't yet pointing to a function. Invoking `bar()` will throw a `ReferenceError` because the ` bar` function expression in the the variable assignment isn't hoisted.
 
@@ -103,55 +111,66 @@ But *declaring a function creates a function scope where the variables declared 
 
 For example:
 
-`const one = 1;
+```
+const one = 1;
 
-function two() { return one + 1; }; // 2`
+function two() { return one + 1; }; // 2
+```
 
 In the above code block, function `two()` has access to the `one` variable because `one` was declared in the global scope.
 
 But in the below code:
 
-`function test() { const one = 1; };
+```
+function test() { const one = 1; };
 
-one // Reference error`
+one // Reference error
+```
 
 Invoking the `one` variable in the global scope throws a `ReferenceError` because `one` is declared inside the function scope of `test()`.
 
 What does scope have to do with hoisting? When we say hoisting is per-scope, we mean the Javascript engine only hoists functions and variable declarations to the top of their current scope. For instance, the engine will read the below code:
 
-`function test() {
+```
+function test() {
     foo;
 		
 		var foo = "foo";
-}`; 
+};
 
+```
 As:
 
-`function test() {
+```
+function test() {
     var foo;
 		
 		foo // undefined;
 		
 		foo = "foo";
-};`
+};
+```
 
 ...only hoisting the `foo` variable to the top of the function scope, not the global scope.
 
 When a function is declared inside a function, all variables declared in the parent functions are available to the child functions in what is called the `scope-chain`. For example,
 
-`function one() {
+```
+function one() {
     const foo = "foo";
 		
 		function two() {
 		    const foobar = foo + "bar"
 		};
-};`
+};
+```
 
 In the above code block, function `two()` has access to the `foo` variable declared in parent function `one()`.
 
 However, *invoking a function inside another function doesn't make it part of an existing scope chain. Only declaring it does, not invoking it.* For example:
 
-`const word = "foo";
+```
+const word = "foo";
 
 function one() {
     console.log(word);
@@ -161,7 +180,8 @@ function two() {
     const word = "bar";
 		
 		one();
-};`
+};
+```
 
 In the above code block, invoking `one()` in `two()` will print out `foo`, not `bar`. Because `two()` and `one()` are not declared in each other scopes (only invoked), the only `word` variable that `two()` has access to is the one declared in the global scope.
 
