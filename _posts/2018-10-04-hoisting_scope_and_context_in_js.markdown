@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Hoisting, Scope, and Context in JS "
-date:       2018-10-04 04:41:32 +0000
+date:       2018-10-04 00:41:33 -0400
 permalink:  hoisting_scope_and_context_in_js
 ---
 
@@ -26,9 +26,9 @@ Instead, Javascript will instead 'hoist' function and variable pointers to the t
 
 This means that if you fail to declare a variable before invoking it, you might get odd results in your code.  For instance, in the below line of code...
 
-`console.log(a);
+```console.log(a);
 
-var a = 1`
+var a = 1```
 
 ...instead of printing `1` or a `ReferenceError`, the console will print out the value of `a` as `undefined`.
 
