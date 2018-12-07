@@ -167,9 +167,7 @@ For example, the following code redirects the user from the Damage form page to 
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to={{
-                pathname: `/users/${this.state.user_id}`,
-              }} />
+      return <Redirect to={{pathname: `/users/${this.state.user_id}`}} />
     }
   }
 
