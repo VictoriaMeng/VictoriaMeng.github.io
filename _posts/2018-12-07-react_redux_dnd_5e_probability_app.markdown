@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "React/Redux DnD 5e Probability App"
-date:       2018-12-07 18:06:13 +0000
+date:       2018-12-07 13:06:14 -0500
 permalink:  react_redux_dnd_5e_probability_app
 ---
 
@@ -74,7 +74,7 @@ So a redirect to a static link would look like :
 
 While a redirect to a dynamic link would contain an object value for the `to` prop instead of a string. That object will contain a `pathname` key which can take an interpolated Javascript string as a value.
 
-```<Redirect to={{pathname: `/users/${sessionStorage.getItem('id')}`,}} />```
+```<Redirect to={ { pathname: `/users/${id}` } } />```
 
 This is because the JSX syntax does not recognize interpolated Javascript strings when passed directly into a component.
 
@@ -254,9 +254,9 @@ export const login = (formData) => {
   }
 }```
 
-All login authentication is done in the backend. Based on the above code, when a user successfully logs in, the app saves the user id in ```sessionStorage``` AND updates the store. 
+All login authentication is done in the backend. Based on the above code, when a user successfully logs in, the app saves the user id in `sessionStorage` AND updates the store. 
 
-Then, ```checkLogin()``` can be invoked in components that conditionally render based on the login state - Take a look again at the ```NavContainer``` code I posted in the previous section:
+Then, `checkLogin()` can be invoked in components that conditionally render based on the login state - Take a look again at the `NavContainer` code I posted in the previous section:
 
 ```
 class NavContainer extends Component {
