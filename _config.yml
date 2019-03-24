@@ -1,15 +1,14 @@
 # Site settings
-title: First Steps
+author: Victoria Meng
+title: I Read So You Don't Have To
 header-img: img/home-bg.png
 email: nights1ststar@protonmail.com
-copyright_name: VictoriaMeng
+copyright_name: Victoria Meng
 description: > # this means to ignore newlines until "baseurl:"
   Blogging about my journey through Flatiron's Online Web Developer Prog
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  VictoriaMeng
-learn_profile: VictoriaMeng
-email_username: nights1ststar@protonmail.com
 
 # Build settings
 markdown: kramdown
